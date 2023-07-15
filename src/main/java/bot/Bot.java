@@ -39,6 +39,7 @@ public class Bot {
 //        sc.close();
 	}
 
+	
 	public static void initializeSystem(int size) {
 		floor = new int[size][size];
 
