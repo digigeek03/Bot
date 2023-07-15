@@ -69,5 +69,19 @@ public class TestBot {
 		}, "Entered command is invalid");
 		Assertions.assertEquals("Entered command is invalid", thrown.getMessage());
 	}
+	//	 @Test
+//	    public void testInvalidBotSteps() {
+//	         
+//	    	IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
+//	             
+//	            @Override
+//	            public void execute() throws Throwable {
+//	                Bot robo1 = new Bot();
+//	                robo1.processInput("I 10");
+//	                robo1.processInput("M 0");
+//	            }
+//	        }, "Invalid steps! Please enter positive value")
+//	    	assertNotEquals("Invalid steps! Please enter positive value", thrown.getMessage());
+//	    }
 
 	
