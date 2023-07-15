@@ -55,3 +55,19 @@ public class TestBot {
 		}, "null command is invalid");
 		Assertions.assertEquals("null command is invalid", thrown.getMessage());
 	}
+
+	@Test
+	public void testInvalidBotInstruction() {
+
+		IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
+
+			@Override
+			public void execute() throws Throwable {
+				Bot robo1 = new Bot();
+				robo1.processInput("z");
+			}
+		}, "Entered command is invalid");
+		Assertions.assertEquals("Entered command is invalid", thrown.getMessage());
+	}
+
+	
