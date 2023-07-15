@@ -114,3 +114,19 @@ public class TestBot {
         Assertions.assertEquals("W", robo1.direction);
     }
 	
+	@Test
+    public void testProcessInputPrintFloor() {
+        Assertions.assertDoesNotThrow(() -> {
+        	Bot robo1 = new Bot();
+    		robo1.processInput("P");
+        });
+    }
+	
+	@Test
+    public void testProcessInputPrintCurrentStatus() {
+        Assertions.assertDoesNotThrow(() -> {
+        	Bot robo1 = new Bot();
+    		robo1.processInput("C");
+        });
+    }
+	
