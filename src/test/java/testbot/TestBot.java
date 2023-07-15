@@ -280,4 +280,16 @@ public class TestBot {
       String expectedOutput = "3       \n2 *     \n1 *     \n0 *     \n  0 1 2 3 ";
      assertFalse(output.toString().equals(expectedOutput));
 	 }
-	
+	@Test
+     public void testCurrentLocation() {
+      ByteArrayOutputStream output = new ByteArrayOutputStream();
+      System.setOut(new PrintStream(output));
+      Bot robo1 = new Bot();
+      robo1.processInput("I 3");
+      robo1.processInput("m 2");
+      
+      robo1.printMatrix();
+      
+      String expectedOutput = "Moved forward 2 spaces. New position: [2, 0]";
+     assertFalse(output.toString().equals(expectedOutput));
+	 }
