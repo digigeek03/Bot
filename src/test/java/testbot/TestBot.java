@@ -182,4 +182,30 @@ public class TestBot {
 	        Assertions.assertEquals(4, robo1.currentCol);
 	        Assertions.assertEquals(0, robo1.currentRow);
 	    }
+	 @Test
+	    public void testMoveForwardNorthInvalidOutOfBounds() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 4");
+	     	robo1.moveForward(6); 
+	        Assertions.assertEquals(0, robo1.currentRow);
+	        Assertions.assertEquals(0, robo1.currentCol);
+	    }
+	 @Test
+	    public void testMoveForwardEastInvalidOutOfBounds() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 4");
+	     	robo1.turnRight(); 
+	        robo1.moveForward(6); 
+	        Assertions.assertEquals(0, robo1.currentRow);
+	        Assertions.assertEquals(0, robo1.currentCol);
+	    }
+	 @Test
+	    public void testMoveForwardWestInvalidOutOfBounds() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 4");
+	     	robo1.turnRight(); 
+	        robo1.moveForward(6);
+	        Assertions.assertEquals(0, robo1.currentRow);
+	        Assertions.assertEquals(0, robo1.currentCol);
+	    }
 	
