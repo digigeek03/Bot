@@ -130,3 +130,18 @@ public class TestBot {
         });
     }
 	
+@Test
+    public void testProcessInputQuit() {
+		Bot robo1 = new Bot();
+        boolean result = robo1.processInput("Q");
+        Assertions.assertFalse(result);
+    }
+	 
+	 @Test
+	    public void testProcessInputInitializeSystem() {
+	        Assertions.assertDoesNotThrow(() -> {
+	        	Bot robo1 = new Bot();
+	    		robo1.processInput("I5");
+	        });
+	        
+	    }
