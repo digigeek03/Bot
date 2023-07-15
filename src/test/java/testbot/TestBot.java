@@ -97,4 +97,20 @@ public class TestBot {
 		robo1.processInput("D");
         Assertions.assertTrue(robo1.penDown);
     }
+
+		@Test
+    public void testProcessInputTurnRight() {
+		Bot robo1 = new Bot();
+		robo1.processInput("I 10");
+		robo1.processInput("R");
+        Assertions.assertEquals("E", robo1.direction);
+    }
+	
+	@Test
+    public void testProcessInputTurnLeft() {
+		Bot robo1 = new Bot();
+		robo1.processInput("I 10");
+		robo1.processInput("L");
+        Assertions.assertEquals("W", robo1.direction);
+    }
 	
