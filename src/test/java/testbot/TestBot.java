@@ -234,3 +234,27 @@ public class TestBot {
 	        Assertions.assertEquals(1, robo1.floor[0][1]);
 	        Assertions.assertEquals(1, robo1.floor[0][2]);
 	    }
+
+	@Test
+	    public void testMoveForwardNorthInvalidOutOfBoundsPenDown() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 4");
+	     	robo1.penDown();
+	        robo1.moveForward(6); 
+	        Assertions.assertEquals(0, robo1.currentRow);
+	        Assertions.assertEquals(0, robo1.currentCol);
+	        Assertions.assertEquals(0, robo1.floor[0][0]);
+	    }
+	 @Test
+	    public void testMoveForwardSouthInvalidOutOfBoundsPenDown() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 4");
+	     	robo1.penDown();
+	        robo1.turnRight();
+	        robo1.moveForward(6);
+	        Assertions.assertEquals(0, robo1.currentRow);
+	        Assertions.assertEquals(0, robo1.currentCol);
+	        Assertions.assertEquals(0, robo1.floor[0][0]);
+	    }
+
+	
