@@ -145,3 +145,14 @@ public class TestBot {
 	        });
 	        
 	    }
+	
+	 @Test
+	    public void testProcessInputMoveForward() {
+	        Assertions.assertDoesNotThrow(() -> {
+	        	Bot robo1 = new Bot();
+	        	robo1.processInput("I 10");
+	    		robo1.processInput("M3");
+	    		assertEquals(0,robo1.currentCol);
+	    		assertEquals(3,robo1.currentRow);
+	        });
+	    }
