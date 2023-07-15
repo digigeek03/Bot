@@ -42,4 +42,16 @@ public class TestBot {
 		Assertions.assertEquals("Enter valid command", thrown.getMessage());
 	}
 
-	
+		@Test
+	public void testBotInstructionIsNull() {
+
+		NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, new Executable() {
+
+			@Override
+			public void execute() throws Throwable {
+				Bot robo1 = new Bot();
+				robo1.processInput(null);
+			}
+		}, "null command is invalid");
+		Assertions.assertEquals("null command is invalid", thrown.getMessage());
+	}
