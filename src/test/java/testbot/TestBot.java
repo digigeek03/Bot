@@ -83,5 +83,12 @@ public class TestBot {
 //	        }, "Invalid steps! Please enter positive value")
 //	    	assertNotEquals("Invalid steps! Please enter positive value", thrown.getMessage());
 //	    }
-
+	
+	@Test
+	 public void testProcessInputPenUp() {
+		
+		Bot robo1 = new Bot();
+		robo1.processInput("U");
+        Assertions.assertFalse(robo1.penDown);
+    }
 	
