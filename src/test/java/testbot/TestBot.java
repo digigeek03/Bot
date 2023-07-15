@@ -27,4 +27,19 @@ public class TestBot {
 		}, "Blank space is invalid command");
 		Assertions.assertEquals("Blank space is invalid command", thrown.getMessage());
 	}
+
+	@Test
+	public void testBotInstructionIsEmpty() {
+
+		IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
+
+			@Override
+			public void execute() throws Throwable {
+				Bot robo1 = new Bot();
+				robo1.processInput("");
+			}
+		}, "Enter valid command");
+		Assertions.assertEquals("Enter valid command", thrown.getMessage());
+	}
+
 	
