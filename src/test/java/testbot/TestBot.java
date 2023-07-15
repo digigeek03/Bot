@@ -91,4 +91,10 @@ public class TestBot {
 		robo1.processInput("U");
         Assertions.assertFalse(robo1.penDown);
     }
+		@Test
+    public void testProcessInputPenDown() {
+		Bot robo1 = new Bot();
+		robo1.processInput("D");
+        Assertions.assertTrue(robo1.penDown);
+    }
 	
