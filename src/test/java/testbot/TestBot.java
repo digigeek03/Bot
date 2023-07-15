@@ -156,3 +156,30 @@ public class TestBot {
 	    		assertEquals(3,robo1.currentRow);
 	        });
 	    }
+	@Test
+	    public void testMoveForwardNorthValid() {
+		     	Bot robo1 = new Bot();
+		     	robo1.processInput("I 10");
+		     	robo1.moveForward(2);
+	        Assertions.assertEquals(2, robo1.currentRow);
+	        Assertions.assertEquals(0, robo1.currentCol);
+	    }
+	 @Test
+	    public void testMoveForwardEastValid() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 10");
+	     	robo1.turnRight(); 
+	        robo1.moveForward(2);
+	        Assertions.assertEquals(0, robo1.currentRow);
+	        Assertions.assertEquals(2, robo1.currentCol);
+	    }
+	 @Test
+	    public void testMoveForwardSouthValid() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 10");
+	     	robo1.turnRight(); 
+	        robo1.moveForward(4);
+	        Assertions.assertEquals(4, robo1.currentCol);
+	        Assertions.assertEquals(0, robo1.currentRow);
+	    }
+	
