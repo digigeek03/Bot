@@ -293,3 +293,34 @@ public class TestBot {
       String expectedOutput = "Moved forward 2 spaces. New position: [2, 0]";
      assertFalse(output.toString().equals(expectedOutput));
 	 }
+ 
+	@Test
+	    public void testBotPenDownFunction() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 10");
+	     	robo1.penDown();
+	        Assertions.assertEquals(true, robo1.penDown);
+	    }
+	 @Test
+	    public void testBotPenUpFunction() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 10");
+	     	robo1.penUp();
+	        Assertions.assertEquals(false, robo1.penDown);
+	    }
+	 @Test
+	    public void testBotTurnLeftFunction() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 10");
+	     	robo1.turnLeft();
+	        Assertions.assertEquals("W", robo1.direction);
+	    }
+	 @Test
+	    public void testBotTurnRightFunction() {
+		 Bot robo1 = new Bot();
+	     	robo1.processInput("I 10");
+	     	robo1.turnRight();
+	        Assertions.assertEquals("E",robo1.direction);
+	    }
+
+}
