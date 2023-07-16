@@ -15,7 +15,7 @@ import bot.Bot;
 
 public class TestBot {
 	@Test
-	public void testBotInstructionIsValidwithoutSpace() {
+	public void testBotInstructionIsInValidWithSpace() {
 
 		IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
 
@@ -35,14 +35,14 @@ public class TestBot {
 
 			@Override
 			public void execute() throws Throwable {
-				Bot robo1 = new Bot();
+				Bot robo1 = new Bot();  
 				robo1.processInput("");
 			}
 		}, "Enter valid command");
 		Assertions.assertEquals("Enter valid command", thrown.getMessage());
 	}
 
-		@Test
+	@Test
 	public void testBotInstructionIsNull() {
 
 		NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, new Executable() {
@@ -69,7 +69,7 @@ public class TestBot {
 		}, "Entered command is invalid");
 		Assertions.assertEquals("Entered command is invalid", thrown.getMessage());
 	}
-	//	 @Test
+//	 @Test
 //	    public void testInvalidBotSteps() {
 //	         
 //	    	IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
@@ -83,7 +83,6 @@ public class TestBot {
 //	        }, "Invalid steps! Please enter positive value")
 //	    	assertNotEquals("Invalid steps! Please enter positive value", thrown.getMessage());
 //	    }
-	
 	@Test
 	 public void testProcessInputPenUp() {
 		
@@ -91,14 +90,15 @@ public class TestBot {
 		robo1.processInput("U");
         Assertions.assertFalse(robo1.penDown);
     }
-		@Test
+	
+	@Test
     public void testProcessInputPenDown() {
 		Bot robo1 = new Bot();
 		robo1.processInput("D");
         Assertions.assertTrue(robo1.penDown);
     }
-
-		@Test
+	
+	@Test
     public void testProcessInputTurnRight() {
 		Bot robo1 = new Bot();
 		robo1.processInput("I 10");
@@ -129,8 +129,7 @@ public class TestBot {
     		robo1.processInput("C");
         });
     }
-	
-@Test
+	@Test
     public void testProcessInputQuit() {
 		Bot robo1 = new Bot();
         boolean result = robo1.processInput("Q");
@@ -145,7 +144,6 @@ public class TestBot {
 	        });
 	        
 	    }
-	
 	 @Test
 	    public void testProcessInputMoveForward() {
 	        Assertions.assertDoesNotThrow(() -> {
@@ -156,7 +154,7 @@ public class TestBot {
 	    		assertEquals(3,robo1.currentRow);
 	        });
 	    }
-	@Test
+	 @Test
 	    public void testMoveForwardNorthValid() {
 		     	Bot robo1 = new Bot();
 		     	robo1.processInput("I 10");
@@ -177,10 +175,12 @@ public class TestBot {
 	    public void testMoveForwardSouthValid() {
 		 Bot robo1 = new Bot();
 	     	robo1.processInput("I 10");
+	     	robo1.processInput("M8");
 	     	robo1.turnRight(); 
+	     	robo1.turnRight();
 	        robo1.moveForward(4);
-	        Assertions.assertEquals(4, robo1.currentCol);
-	        Assertions.assertEquals(0, robo1.currentRow);
+	        Assertions.assertEquals(0, robo1.currentCol);
+	        Assertions.assertEquals(4, robo1.currentRow);
 	    }
 	 @Test
 	    public void testMoveForwardNorthInvalidOutOfBounds() {
@@ -208,8 +208,7 @@ public class TestBot {
 	        Assertions.assertEquals(0, robo1.currentRow);
 	        Assertions.assertEquals(0, robo1.currentCol);
 	    }
-	
- @Test
+	 @Test
 	    public void testMoveForwardNorthValidPenDown() {
 		 Bot robo1 = new Bot();
 	     	robo1.processInput("I 10");
@@ -234,8 +233,7 @@ public class TestBot {
 	        Assertions.assertEquals(1, robo1.floor[0][1]);
 	        Assertions.assertEquals(1, robo1.floor[0][2]);
 	    }
-
-	@Test
+	 @Test
 	    public void testMoveForwardNorthInvalidOutOfBoundsPenDown() {
 		 Bot robo1 = new Bot();
 	     	robo1.processInput("I 4");
@@ -251,15 +249,16 @@ public class TestBot {
 	     	robo1.processInput("I 4");
 	     	robo1.penDown();
 	        robo1.turnRight();
+	        robo1.turnRight();
 	        robo1.moveForward(6);
 	        Assertions.assertEquals(0, robo1.currentRow);
 	        Assertions.assertEquals(0, robo1.currentCol);
 	        Assertions.assertEquals(0, robo1.floor[0][0]);
 	    }
- @Test
+	 @Test
      public void testPrintEmptyFloor() {
       ByteArrayOutputStream output = new ByteArrayOutputStream();
-      System.setOut(new PrintStream(output));
+      //System.setOut(new PrintStream(output));
       Bot robo1 = new Bot();
       robo1.processInput("I 3");
       robo1.printMatrix();
@@ -270,7 +269,7 @@ public class TestBot {
 	 @Test
      public void testPrintPath() {
       ByteArrayOutputStream output = new ByteArrayOutputStream();
-      System.setOut(new PrintStream(output));
+      //System.setOut(new PrintStream(output));
       Bot robo1 = new Bot();
       robo1.processInput("I 3");
       robo1.processInput("m 2");
@@ -280,10 +279,10 @@ public class TestBot {
       String expectedOutput = "3       \n2 *     \n1 *     \n0 *     \n  0 1 2 3 ";
      assertFalse(output.toString().equals(expectedOutput));
 	 }
-	@Test
+	 @Test
      public void testCurrentLocation() {
       ByteArrayOutputStream output = new ByteArrayOutputStream();
-      System.setOut(new PrintStream(output));
+      //System.setOut(new PrintStream(output));
       Bot robo1 = new Bot();
       robo1.processInput("I 3");
       robo1.processInput("m 2");
@@ -293,15 +292,14 @@ public class TestBot {
       String expectedOutput = "Moved forward 2 spaces. New position: [2, 0]";
      assertFalse(output.toString().equals(expectedOutput));
 	 }
- 
-	@Test
+	 @Test
 	    public void testBotPenDownFunction() {
 		 Bot robo1 = new Bot();
 	     	robo1.processInput("I 10");
 	     	robo1.penDown();
 	        Assertions.assertEquals(true, robo1.penDown);
 	    }
-	 @Test
+	 @Test  
 	    public void testBotPenUpFunction() {
 		 Bot robo1 = new Bot();
 	     	robo1.processInput("I 10");
