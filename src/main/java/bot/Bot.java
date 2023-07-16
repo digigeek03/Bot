@@ -12,11 +12,7 @@ public class Bot {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		// System.out.print("Enter the size
-//        size = sc.nextInt();dkfgfefgfdfdgffgfdgdgdf
-//        initializeSystem(size);
-
-//        boolean programRunning = true;
+        boolean programRunning = true;
 
 		System.out.println("Valid input options:");
 		System.out.println("[U|u] Pen up");
@@ -29,17 +25,14 @@ public class Bot {
 		System.out.println("[Q|q] Stop the program");
 		System.out.println("[I n|i n] Initialize the system");
 
-		while (true) {
+		while (programRunning) {
 			System.out.print("Enter a instruction: ");
 			String instruction = sc.nextLine();
 
 			processInput(instruction);
 		}
-
-//        sc.close();
 	}
 
-	
 	public static void initializeSystem(int size) {
 		floor = new int[size][size];
 
@@ -119,8 +112,6 @@ public class Bot {
 		case 'M':
 		case 'm':
 			try {
-				// System.out.println(instruction.substring(1).trim());
-				// System.out.println("zzzzzzzz");
 				int spaces = Integer.parseInt(instruction.substring(1).trim());
 				if (spaces <= 0) {
 					throw new IllegalArgumentException("Invalid steps! Please enter positive value");
@@ -134,12 +125,7 @@ public class Bot {
 			}
 			break;
 		default:
-			// if (instruction.matches("M\\d+")) {
-			// int spaces = Integer.parseInt(instruction.substring(1));
-			// moveForward(spaces);
-			// } else {
 			System.out.println("Invalid instruction!");
-			// }
 			break;
 		}
 		return true;
@@ -241,7 +227,7 @@ public class Bot {
 			System.out.print(i + " ");
 			for (int j = 0; j < size; j++) {
 				if (floor[i][j] == 0)
-					System.out.print("  ");
+					System.out.print("  ");  
 				else
 					System.out.print("* ");
 			}
@@ -259,5 +245,6 @@ public class Bot {
 		System.out.println("Current position: [" + currentRow + ", " + currentCol + "]");
 		System.out.println("Pen status: " + penStatus);
 		System.out.println("Direction: " + direction);
-	}
+	}   
 }
+////
