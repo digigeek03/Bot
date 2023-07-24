@@ -9,24 +9,12 @@ public class Bot {
 	public static boolean penDown;
 	public static String direction;
 	public static int size;
+	public static boolean programRunning = true;
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-        boolean programRunning = true;
-
-		System.out.println("Valid input options:");
-		System.out.println("[U|u] Pen up");
-		System.out.println("[D|d] Pen down");
-		System.out.println("[R|r] Turn right");
-		System.out.println("[L|l] Turn left");
-		System.out.println("[M s|m s] Move forward s spaces");
-		System.out.println("[P|p] Print the N by N array and display the indices");
-		System.out.println("[C|c] Print current position of the pen");
-		System.out.println("[Q|q] Stop the program");
-		System.out.println("[I n|i n] Initialize the system");
-
 		while (programRunning) {
-			System.out.print("Enter a instruction: ");
+			
 			String instruction = sc.nextLine();
 
 			processInput(instruction);
@@ -92,38 +80,28 @@ public class Bot {
 			break;
 		case 'Q':
 		case 'q':
+			programRunning=false;
 			return false;
 		case 'I':
 		case 'i':
 
-			try {
+			
 				size = Integer.parseInt(instruction.substring(1).trim());
 				initializeSystem(size);
 				if (size <= 0) {
 					throw new IllegalArgumentException("Invalid steps!! Provide integer value for steps.");
 				}
 				break;
-			} catch (NumberFormatException e) {
-				System.out.println("Invalid input. Please enter a integer number.");
-			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
-			}
-			break;
 		case 'M':
 		case 'm':
-			try {
+			
 				int spaces = Integer.parseInt(instruction.substring(1).trim());
 				if (spaces <= 0) {
 					throw new IllegalArgumentException("Invalid steps! Please enter positive value");
 				}
 				moveForward(spaces);
 				break;
-			} catch (NumberFormatException e) {
-				System.out.println("Invalid input. Please enter a integer number.");
-			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
-			}
-			break;
+			
 		default:
 			System.out.println("Invalid instruction!");
 			break;
@@ -247,4 +225,3 @@ public class Bot {
 		System.out.println("Direction: " + direction);
 	}   
 }
-////
