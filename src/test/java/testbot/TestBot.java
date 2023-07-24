@@ -103,6 +103,10 @@ public class TestBot {
 		Bot robo1 = new Bot();
 		robo1.processInput("I 10");
 		robo1.processInput("R");
+		robo1.processInput("R");
+		robo1.processInput("R");
+		robo1.processInput("R");
+		robo1.processInput("R");
         Assertions.assertEquals("E", robo1.direction);
     }
 	
@@ -110,6 +114,10 @@ public class TestBot {
     public void testProcessInputTurnLeft() {
 		Bot robo1 = new Bot();
 		robo1.processInput("I 10");
+		robo1.processInput("L");
+		robo1.processInput("L");
+		robo1.processInput("L");
+		robo1.processInput("L");
 		robo1.processInput("L");
         Assertions.assertEquals("W", robo1.direction);
     }
@@ -163,10 +171,13 @@ public class TestBot {
 	        Assertions.assertEquals(0, robo1.currentCol);
 	    }
 	 @Test
-	    public void testMoveForwardEastValid() {
+	    public void testMoveForwardEastwESTValid() {
 		 Bot robo1 = new Bot();
 	     	robo1.processInput("I 10");
 	     	robo1.turnRight(); 
+	        robo1.moveForward(4);
+	        robo1.turnRight();
+	        robo1.turnRight();
 	        robo1.moveForward(2);
 	        Assertions.assertEquals(0, robo1.currentRow);
 	        Assertions.assertEquals(2, robo1.currentCol);
